@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sun Dec 29 11:26:37 IST 2019
+org.eclipse.jst.jee.server\:/binary\:F\:\\mavenproject\\MVCProject\\WebContent\\WEB-INF\\lib\\spring-web-5.1.5.RELEASE.jar=WEB-INF/lib/spring-web-5.1.5.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:F\:\\mavenproject\\MVCProject\\WebContent\\WEB-INF\\lib\\spring-web-5.1.5.RELEASE-sources.jar=WEB-INF/lib/spring-web-5.1.5.RELEASE-sources.jar

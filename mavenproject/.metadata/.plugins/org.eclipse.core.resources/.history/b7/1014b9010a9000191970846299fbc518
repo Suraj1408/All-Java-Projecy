@@ -1,0 +1,96 @@
+package com.org.daoimplimentation;
+
+import java.util.List;
+
+
+
+
+
+
+
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.org.daointerface.DaoInterface;
+import com.org.model.Student;
+@Repository
+public class DaoImplimentation implements DaoInterface
+{
+@Autowired
+	SessionFactory sf;
+	
+	@Override
+	public int registerData(Student stu) 
+	{
+		System.out.println("in dao impl"+stu);
+		Session session=sf.openSession();
+		Transaction tra=session.beginTransaction();
+		 int i=(int)session.save(stu);
+		 System.out.println("data save in tab");
+		tra.commit();	
+		
+		return i;
+	}
+
+	@Override
+	public void add(Student stu) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Student> checkLogin(String uname, String pword)
+	{
+          
+		Session session=sf.openSession();
+		//List<Employee> list=session.createQuery("from Employee where username=:uname and password=:pass",Employee.class).setParameter("uname",uname).setParameter("pass",pass).getResultList();
+		
+		List<Student> list=session.createQuery("from Student where username=:uname and password=:pword",Student.class).setParameter("uname",uname).setParameter("pass",pword).getResultList();
+		
+		return list;
+		
+		
+		
+		
+	}
+
+	@Override
+	public List<Student> getAllData() 
+	{
+         System.out.println("in getall data method");
+		Session session=sf.openSession();
+		List<Student> list=session.createQuery("from Student",Student.class).getResultList();
+		return list;
+	}
+
+	@Override
+	public Student edit(Student rollno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Student stu) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int rollno) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}
